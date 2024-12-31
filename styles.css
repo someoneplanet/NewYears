@@ -1,0 +1,121 @@
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.8); }
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #000;
+    overflow: hidden;
+    font-family: 'Arial', sans-serif;
+    color: white;
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+}
+
+#fireworks {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.message {
+    text-align: center;
+    padding: 3rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    animation: float 4s ease-in-out infinite;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.year {
+    font-size: 5rem;
+    font-weight: bold;
+    background: linear-gradient(45deg, #ff6b6b, #ffd93d, #6c5ce7, #a8e6cf);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: gradientBG 6s ease infinite;
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: 3rem;
+    margin: 0.5rem 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.wishes {
+    font-size: 1.5rem;
+    line-height: 1.6;
+    margin: 1.5rem 0;
+}
+
+.highlight {
+    color: #ffd93d;
+    font-weight: bold;
+}
+
+.countdown {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 1.2rem;
+    margin-top: 2rem;
+    color: #a8e6cf;
+}
+
+.star-container {
+    animation: twinkle 2s ease-in-out infinite;
+}
+
+.fa-star {
+    color: #ffd93d;
+}
+
+.sparkles {
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    right: -50px;
+    bottom: -50px;
+    pointer-events: none;
+    background-image: 
+        radial-gradient(2px 2px at 20px 30px, #ffffff, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 40px 70px, #ffffff, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 50px 160px, #ffffff, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 90px 40px, #ffffff, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 130px 80px, #ffffff, rgba(0,0,0,0));
+    background-size: 200px 200px;
+    animation: sparkle 6s ease-in-out infinite;
+    opacity: 0.5;
+}
+
+@keyframes sparkle {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+} 
